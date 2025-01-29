@@ -1,4 +1,3 @@
-import { style } from '@angular/animations';
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 
@@ -29,13 +28,24 @@ export class AppComponent {
       content: [
         {
           table: {
-            widths: ['auto', 'auto', '*'],
+            widths: ['*', 'auto', '*'],
             body: [
               [
                 {
-                  image: this.logoBase64,
-                  width: 100,
-                  margin: [0, 5],
+                  table: {
+                    widths: ['*'],
+                    body: [
+                      [
+                        {
+                          image: this.logoBase64,
+                          width: 100,
+                          margin: [0, 5],
+                        },
+                      ],
+                    ],
+                    layout: 'noBorders',
+                  },
+                  alignment: 'center', // Centra el contenedor de la imagen
                 },
                 {
                   table: {
@@ -65,13 +75,30 @@ export class AppComponent {
                 },
                 {
                   table: {
-                    widths: ['*', '*'],
+                    widths: ['*'],
                     body: [
-                      ['1', '2'],
-                      ['1', '2'],
+                      [
+                        {
+                          image: this.logoBase64,
+                          width: 100,
+                          margin: [0, 5],
+                        },
+                      ],
                     ],
+                    layout: 'noBorders',
                   },
+                  alignment: 'center', // Centra el contenedor de la imagen
                 },
+
+                // {
+                //   table: {
+                //     widths: ['*', '*'],
+                //     body: [
+                //       ['1', '2'],
+                //       ['1', '2']
+                //     ],
+                //   },
+                // },
               ],
             ],
           },
@@ -90,13 +117,15 @@ export class AppComponent {
                   text: `NOMBRE COMPLETO: ${'Wisthong David Martinez Castro'}`,
                   alignment: 'justify',
                   margin: [0, 5],
-                  // fillColor: '#f2f2f2',
+                  fontSize: 10,
+                  bold: true,
                 },
                 {
-                  text: 'CARGO: Developer',
+                  text: `CARGO: ${'Developer'}`,
                   alignment: 'justify',
                   margin: [0, 5],
-                  // fillColor: '#f2f2f2',
+                  fontSize: 10,
+                  bold: true,
                 },
               ],
               [
@@ -106,24 +135,26 @@ export class AppComponent {
                   }/${now.getFullYear()}`,
                   alignment: 'justify',
                   margin: [0, 5],
-                  // fillColor: '#f2f2f2',
+                  fontSize: 10,
+                  bold: true,
                 },
                 {
                   text: `CC: 1151963475`,
                   alignment: 'justify',
                   margin: [0, 5],
-                  // fillColor: '#f2f2f2',
+                  fontSize: 10,
+                  bold: true,
                 },
               ],
             ],
           },
         },
-        { text: `\n\n\n\nObjetivo:`, style: 'subheader', bold: true },
+        { text: `\nObjetivo:`, style: 'header' },
         {
           text: 'Dar cumplimiento a la Ley 1857 del 26 de julio de 2017.',
           style: 'subheader',
         },
-        { text: 'Alcance:', style: 'subheader', bold: true },
+        { text: 'Alcance:', style: 'header' },
         {
           text: `“Facilitar, promover y gestionar una jornada semestral en la que sus empleados puedan compartir con su familia en un espacio suministrado por el empleador o en uno gestionado ante la caja de compensación familiar con la que cuentan los empleados. Si el empleador no logra gestionar esta jornada deberá permitir que los trabajadores tengan este espacio de tiempo con sus familias sin afectar los días de descanso” \n\n`,
           style: 'subheader',
@@ -149,14 +180,74 @@ export class AppComponent {
           style: 'subheader',
         },
         {
-          image: this.signatureBase64,
-          width: 150,
-          margin: [0, 20],
+          table: {
+            widths: ['*', '*', '*'],
+            body: [
+              [
+                {
+                  text: 'Gestión Humana',
+                  alignment: 'center',
+                  margin: [0, 5],
+                  fillColor: '#adb5bd',
+                  bold: true,
+                },
+                {
+                  text: 'Jefe Inmediato',
+                  alignment: 'center',
+                  margin: [0, 5],
+                  fillColor: '#adb5bd',
+                  bold: true,
+                },
+                {
+                  text: 'Trabajador',
+                  alignment: 'center',
+                  margin: [0, 5],
+                  fillColor: '#adb5bd',
+                  bold: true,
+                },
+              ],
+              [
+                {
+                  image: this.signatureBase64,
+                  width: 150,
+                  margin: [0, 20],
+                },
+                {
+                  image: this.signatureBase64,
+                  width: 150,
+                  margin: [0, 20],
+                },
+                {
+                  image: this.signatureBase64,
+                  width: 150,
+                  margin: [0, 20],
+                },
+              ],
+              [
+                {
+                  text: 'Firma',
+                  alignment: 'center',
+                  margin: [0, 5],
+                },
+                {
+                  text: 'Firma',
+                  alignment: 'center',
+                  margin: [0, 5],
+                },
+                {
+                  text: 'Firma',
+                  alignment: 'center',
+                  margin: [0, 5],
+                },
+              ],
+            ],
+          },
+          // layout: 'noBorders', // Opcional: quitar bordes de la tabla
         },
       ],
       styles: {
         header: {
-          fontSize: 16,
+          fontSize: 12,
           bold: true,
           margin: [0, 20, 0, 10],
         },
